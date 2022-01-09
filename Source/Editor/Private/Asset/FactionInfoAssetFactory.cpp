@@ -57,10 +57,10 @@ bool UFactionInfoAssetFactory::ConfigureProperties()
 	Options.Mode = EClassViewerMode::ClassPicker;
 
 	TSharedPtr<FAssetClassParentFilter> Filter = MakeShared<FAssetClassParentFilter>();
-	Options.ClassFilter = Filter;
-
 	Filter->DisallowedClassFlags = CLASS_Abstract | CLASS_Deprecated | CLASS_NewerVersionExists;
 	Filter->AllowedChildrenOfClasses.Add(UFactionInfoAsset::StaticClass());
+	
+	Options.ClassFilters.Add(Filter.ToSharedRef());
 
 	const FText TitleText = LOCTEXT("CreateItemAssetOptions", "Pick Faction Info Type");
 	UClass* ChosenClass = nullptr;

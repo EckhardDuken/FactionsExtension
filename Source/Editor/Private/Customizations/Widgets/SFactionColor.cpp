@@ -51,7 +51,7 @@ void SFactionColor::Construct(const FArguments& InArgs, TSharedPtr<IPropertyHand
 			SAssignNew(ColorPickerParentWidget, SColorBlock)
 			.Color(this, &SFactionColor::OnGetColorForColorBlock)
 			.ShowBackgroundForAlpha(true)
-			.IgnoreAlpha(bColorIgnoreAlpha)
+			.AlphaDisplayMode(EColorBlockAlphaDisplayMode::Ignore)
 			.OnMouseButtonDown(this, &SFactionColor::OnMouseButtonDownColorBlock)
 			.Size(FVector2D(35.0f, 12.0f))
 			.IsEnabled(this, &SFactionColor::IsValueEnabled)
@@ -64,7 +64,7 @@ void SFactionColor::Construct(const FArguments& InArgs, TSharedPtr<IPropertyHand
 			SNew(SColorBlock)
 			.Color(this, &SFactionColor::OnGetColorForColorBlock)
 			.ShowBackgroundForAlpha(false)
-			.IgnoreAlpha(true)
+			.AlphaDisplayMode(EColorBlockAlphaDisplayMode::Ignore)
 			.OnMouseButtonDown(this, &SFactionColor::OnMouseButtonDownColorBlock)
 			.Size(FVector2D(35.0f, 12.0f))
 		]
